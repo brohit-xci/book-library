@@ -1,0 +1,190 @@
+.book-list-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+.search {
+  height: 30px;
+  margin: 20px 5px;
+  border: solid black 2px;
+  border-radius: 10px;
+  padding: 5px;
+  display: flex;
+}
+.search input {
+  border: none;
+}
+.search div {
+  border: none;
+  background: transparent;
+  margin: 5px 5px;
+  color: gray;
+
+}
+
+.book-tile {
+  position: relative;
+  border: solid black 1px;
+  border-radius: 8px;
+  margin: 5px;
+  padding: 5px;
+  width: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.book-delete {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  visibility: hidden;
+}
+.book-update {
+  position: absolute;
+  border-radius: 0 0 8px 8px;
+  display: flex;
+  bottom: 0;
+  left: 0;
+  height: 50px;
+  width: 100%;
+  visibility: hidden;
+  justify-content: space-around;
+  align-items: center;
+  background: white;
+}
+
+.book-tile[data-active-update="true"] .blur{
+  opacity: 0.1;
+}
+
+.book-tile[data-active-update="false"]:hover {
+  background: lightgray;
+}
+.book-tile[data-active-update="false"]:hover .blur{
+  opacity: 0.1;
+}
+.book-tile[data-active-update="false"]:hover .book-delete {
+  visibility: visible;
+}
+.book-tile[data-active-update="false"]:hover .book-update {
+  visibility: visible;
+}
+
+.book-update[data-active-update-book="true"] {
+  visibility: visible;
+}
+
+.book-update[data-active-update-book="false"] {
+  visibility: hidden;
+}
+
+
+.book-name {
+  font-size: 20px;
+  height: 50px;
+}
+.book-description {
+  font-size: 12px;
+  height: 100px;
+  overflow: scroll;
+  margin: 5px 0;
+}
+
+
+.add-form-container {
+  display: flex;
+  justify-content: space-evenly;
+}
+.add-form {
+  width: 50%;
+  border: solid black 2px;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  margin: 5px;
+}
+.error {
+  font-size: 12px;
+  font-weight: 600;
+  color: red;
+  border: solid red 1px;
+  border-radius: 10px;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 10px;
+}
+
+.spinner {
+  height: 20px;
+  width: 20px;
+  display: inline-block;
+  border-radius: 100%;
+  border: solid blue 2px;
+  border-left-color: transparent;
+  animation: spinner 1s linear infinite;
+}
+
+
+input, textarea {
+  width: 100%;
+  margin: 5px;
+  padding: 0 10px;
+}
+
+input {
+  height: 20px;
+}
+
+input:focus{
+  outline: none;
+}
+
+textarea {
+  resize: vertical;
+  height: 100px;
+}
+
+button {
+  margin-top: 5px;
+}
+
+.toggle-form-btn {
+  margin: 10px 5px;
+}
+
+@media (max-width: 560px) {
+  .book-tile {
+    border-radius: 10px;
+    margin: 10px;
+    padding: 10px;
+    width: 500px;
+  }
+  .toggle-form-btn {
+    width: 96%;
+    margin: 2%;
+    display: flex;
+    justify-content: center;
+    height: 35px;
+  }
+  .add-form {
+    width: 90%;
+  }
+  input {
+    border: solid black 1px;
+  }
+  textarea {
+    border: solid black 1px;
+  }
+  button {
+    background: transparent;
+    border: solid black 1px;
+    border-radius: 5px;
+  }
+}
+
+@keyframes spinner {
+  0%   {transform: rotate(0deg);}
+  50%  {transform: rotate(180deg);}
+  100% {transform: rotate(360deg);}
+}
