@@ -19,6 +19,6 @@ $ node start
 
 This will start the server listening at port *3001*.
 
-Open browser and hit http://localhost:7777/ to see the web-version of this respo.
+Open browser and hit http://localhost:7777/ to see the web-version of this repo.
 
 To delete or update any book, hover to the book tile.

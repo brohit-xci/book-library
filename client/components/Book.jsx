@@ -13,26 +13,29 @@ class Book extends Component {
   }
   onUpdateClick() {
     this.props.setEditMode(this.props.id);
-    window.scrollTo(0,document.body.scrollHeight)
+    window.scrollTo(0,document.body.scrollHeight);
   }
   render() {
     const isUpdateActive = this.props.isUpdate;
     const isUpdateActiveOnItself =  this.props.updateBookDetails.id === this.props.id;
 
-    const blurClassName = !isUpdateActive || (isUpdateActive && isUpdateActiveOnItself) ? "blur" : "";
+    const isBlur = !isUpdateActive || (isUpdateActive && isUpdateActiveOnItself) ? "blur" : "";
 
     return (
-      <div className="book-tile" data-active-update={isUpdateActive}>
-        <div className={`book-name ${blurClassName}`}>
+      <div
+        className="book-tile"
+        data-active-update={isUpdateActive}
+        data-collapse={isUpdateActive && !isUpdateActiveOnItself}>
+        <div className={`book-name ${isBlur}`}>
           {this.props.name}
         </div>
-        <div className={`book-author ${blurClassName}`}>
+        <div className={`book-author ${isBlur}`}>
           <span>by {this.props.author}</span>
         </div>
-        <div className={`book-description ${blurClassName}`}>
+        <div className={`book-description ${isBlur}`}>
           {this.props.description}
         </div>
-        <div className={`book-count ${blurClassName}`}>
+        <div className={`book-count ${isBlur}`}>
           {this.props.bookCount || 0} books available
         </div>
 
